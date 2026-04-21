@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yasir Afaque — UX/UI Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink2: #4a4a44;
+    --ink3: #888882;
+    --surface: #f6f5f0;
+    --white: #ffffff;
+    --accent: #2d5a3d;
+    --accent2: #5b8c6a;
+    --accent-light: #eaf3de;
+    --mindbridge: #5B4B8A;
+    --mindbridge-light: #F3F0FA;
+    --pocket: #0e7a56;
+    --pocket-light: #e6f7f0;
+    --school: #1a5fa8;
+    --school-light: #e8f0fb;
+    --border: rgba(26,26,24,0.1);
+    --font-serif: 'DM Serif Display', serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(246,245,240,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink2);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 48px 80px;
+    gap: 80px;
+  }
+  .hero-text {}
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 5vw, 72px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+  .hero-desc {
+    font-size: 17px;
+    color: var(--ink2);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--ink);
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--ink2); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-ring {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .hero-ring::before {
+    content: '';
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1px dashed rgba(45,90,61,0.25);
+  }
+  .hero-initials {
+    font-family: var(--font-serif);
+    font-size: 80px;
+    color: var(--ink);
+    opacity: 0.08;
+    user-select: none;
+  }
+  .hero-tags {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+  }
+  .tag-pill {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink2);
+    white-space: nowrap;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .tag-pill:nth-child(1) { top: 10%; left: -10%; }
+  .tag-pill:nth-child(2) { top: 30%; right: -12%; }
+  .tag-pill:nth-child(3) { bottom: 25%; right: -8%; }
+  .tag-pill:nth-child(4) { bottom: 10%; left: -5%; }
+  .tag-pill:nth-child(5) { top: 62%; left: -18%; }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    color: var(--ink);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--ink3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION HEADERS */
+  section { padding: 100px 48px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 4vw, 52px);
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 16px;
+    color: var(--ink2);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 64px;
+  }
+
+  /* PROJECTS */
+  #work { background: var(--white); }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .project-card-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .project-info {
+    padding: 48px 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project-figma-panel {
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .figma-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0 20px;
+  }
+
+  .figma-tab {
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s, border-color 0.15s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: var(--font-sans);
+  }
+
+  .figma-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+
+  .figma-tab:hover { color: var(--ink2); }
+
+  .figma-embed-wrap {
+    flex: 1;
+    position: relative;
+  }
+
+  .figma-embed-wrap iframe {
+    width: 100%;
+    height: 460px;
+    border: none;
+    display: block;
+  }
+
+  .figma-embed-wrap .figma-pane {
+    display: none;
+  }
+
+  .figma-embed-wrap .figma-pane.active {
+    display: block;
+  }
+
+  .figma-blocked-notice {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(246,245,240,0.9);
+    border-top: 1px solid var(--border);
+    padding: 8px 16px;
+    font-size: 11px;
+    color: var(--ink3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .figma-blocked-notice a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .project-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  .tag-mindbridge { background: var(--mindbridge-light); color: var(--mindbridge); }
+  .tag-pocket { background: var(--pocket-light); color: var(--pocket); }
+  .tag-school { background: var(--school-light); color: var(--school); }
+
+  .project-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .project-desc {
+    font-size: 15px;
+    color: var(--ink2);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .meta-chip {
+    font-size: 12px;
+    color: var(--ink3);
+    background: var(--surface);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+    width: fit-content;
+  }
+  .project-link:hover { opacity: 0.6; }
+
+  .project-visual {
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+  }
+  .project-visual-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg-mindbridge { background: var(--mindbridge-light); }
+  .bg-pocket { background: var(--pocket-light); }
+  .bg-school { background: #0e0e0e; }
+
+  .phone-frame {
+    width: 180px;
+    background: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-notch {
+    height: 28px;
+    background: #1a1a18;
+    border-radius: 0 0 20px 20px;
+    width: 80px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .phone-screen {
+    padding: 16px 12px 20px;
+  }
+  .phone-screen-dark {
+    background: #0e0e0e;
+    padding: 16px 12px 20px;
+    color: #fff;
+  }
+
+  /* MindBridge phone screen */
+  .mb-header { font-size: 11px; font-weight: 500; color: var(--mindbridge); margin-bottom: 12px; }
+  .mb-card {
+    background: #f3f0fa;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  .mb-card-title { font-size: 10px; font-weight: 500; color: #3c3489; margin-bottom: 4px; }
+  .mb-card-text { font-size: 9px; color: #666; line-height: 1.4; }
+  .mb-mood-row { display: flex; gap: 6px; margin-top: 8px; }
+  .mb-mood-dot { width: 24px; height: 24px; border-radius: 50%; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+  .mb-nav { display: flex; justify-content: space-around; padding: 8px 0; border-top: 1px solid #eee; margin-top: 8px; }
+  .mb-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #ddd; }
+  .mb-nav-dot.active { background: var(--mindbridge); }
+
+  /* Pocket phone screen */
+  .pk-donut-wrap { display: flex; justify-content: center; margin: 8px 0; }
+  .pk-category { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .pk-cat-label { font-size: 9px; color: #555; }
+  .pk-cat-bar { flex: 1; height: 4px; background: #e0f7ef; border-radius: 2px; margin: 0 8px; overflow: hidden; }
+  .pk-cat-fill { height: 100%; border-radius: 2px; background: #34C988; }
+  .pk-cat-val { font-size: 9px; color: #333; font-weight: 500; }
+
+  /* SchoolRoute phone screen */
+  .sr-label { font-size: 9px; color: #888; margin-bottom: 4px; }
+  .sr-route-line { display: flex; flex-direction: column; gap: 0; padding-left: 12px; position: relative; }
+  .sr-stop { display: flex; align-items: center; gap: 8px; padding: 5px 0; }
+  .sr-stop::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #378ADD; flex-shrink: 0; margin-left: -12px; }
+  .sr-stop-name { font-size: 9px; color: #ccc; }
+  .sr-stop.active .sr-stop-name { color: #fff; font-weight: 500; }
+  .sr-stop.active::before { background: #34C988; }
+
+  /* ABOUT */
+  #about { background: var(--surface); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 16px;
+    color: var(--ink2);
+    margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 500; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .skill-group {}
+  .skill-group-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .skill-list {
+    list-style: none;
+  }
+  .skill-list li {
+    font-size: 14px;
+    color: var(--ink2);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin-top: 48px;
+  }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-date {
+    font-size: 12px;
+    color: var(--ink3);
+    padding-top: 3px;
+  }
+  .timeline-content {}
+  .timeline-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .timeline-org {
+    font-size: 13px;
+    color: var(--ink3);
+  }
+
+  /* CONTACT */
+  #contact { background: var(--ink); color: var(--white); }
+  #contact .section-label { color: var(--accent2); }
+  #contact .section-title { color: var(--white); }
+  #contact .section-sub { color: rgba(255,255,255,0.55); }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 40px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-link:hover {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+  }
+  .contact-icon { font-size: 16px; opacity: 0.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 24px 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+  /* CASE STUDY DRAWER */
+  .cs-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    padding: 0 0 2px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: opacity 0.2s;
+  }
+  .cs-toggle:hover { opacity: 0.6; }
+  .cs-arrow { display: inline-block; transition: transform 0.2s; }
+
+  .case-drawer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    border-top: 0px solid var(--border);
+  }
+  .case-drawer.open {
+    max-height: 1200px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cs-inner {
+    padding: 48px 48px 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 64px;
+  }
+
+  .cs-section h4 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .cs-section p {
+    font-size: 14px;
+    color: var(--ink2);
+    line-height: 1.8;
+  }
+
+  .cs-decisions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cs-decision {
+    padding: 14px 16px;
+    background: var(--surface);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent2);
+  }
+  .cs-d-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .cs-d-body {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.6;
+  }
+
+  .cs-outcomes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .cs-outcome {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cs-num {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .cs-label {
+    font-size: 11px;
+    color: var(--ink3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 900px) {
+    .cs-inner { grid-template-columns: 1fr; padding: 32px 24px; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-stats { animation: fadeUp 0.6s 0.4s ease both; }
+  .hero-visual { animation: fadeUp 0.8s 0.2s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 24px 60px;
+      gap: 48px;
+    }
+    .hero-visual { display: none; }
+    section { padding: 72px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .project-card-top { grid-template-columns: 1fr; }
+    .project-figma-panel { border-left: none; border-top: 1px solid var(--border); }
+    .figma-embed-wrap iframe { height: 320px; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Yasir Afaque</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/yasir-afaque" target="_blank">LinkedIn ↗</a></li>
+    <li><a href="https://yasir164.github.io/ux-portfolio" target="_blank">Portfolio ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">UX/UI Designer &amp; Researcher</p>
+    <h1 class="hero-title">Designing for <em>people,</em> not assumptions</h1>
+    <p class="hero-desc">M.Sc. Engineering (NKNU) · Google UX Design Certificate. End-to-end design work: research, personas, wireframes, hi-fi prototypes — with a focus on accessibility, safety-first architecture, and ethical design.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View my work →</a>
+      <a href="mailto:yasirafaque25@gmail.com" class="btn-secondary">Get in touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">3</span>
+        <span class="stat-label">Full case studies</span>
+      </div>
+      <div>
+        <span class="stat-num">47</span>
+        <span class="stat-label">Hi-fi screens</span>
+      </div>
+      <div>
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Research methods</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-ring">
+      <span class="hero-initials">YA</span>
+      <div class="hero-tags">
+        <span class="tag-pill">Figma</span>
+        <span class="tag-pill">iOS Design</span>
+        <span class="tag-pill">User Research</span>
+        <span class="tag-pill">Responsive Web</span>
+        <span class="tag-pill">Accessibility</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <p class="section-label">Selected work</p>
+  <h2 class="section-title">Three end-to-end<br>case studies</h2>
+  <p class="section-sub">Each project was taken from research and problem definition through to a polished, clickable hi-fi prototype — with a full usability research plan.</p>
+
+  <div class="projects-grid">
+
+    <!-- SchoolRoute -->
+    <div class="project-card" id="card-sr">
+      <div class="project-card-top">
+        <div class="project-info">
+          <span class="project-tag tag-school">Transport · Nov–Dec 2025</span>
+          <h3 class="project-title">SchoolRoute</h3>
+          <p class="project-desc">A dual-role app for live bus tracking and carpool coordination. Parents get real-time tracking and carpool discovery; students get route details and classmate coordination — all in a dark-themed design system.</p>
+          <div class="project-meta">
+            <span class="meta-chip">iOS Mobile</span>
+            <span class="meta-chip">15 hi-fi screens</span>
+            <span class="meta-chip">Dark theme system</span>
+            <span class="meta-chip">Dual user roles</span>
+          </div>
+          <button class="project-link cs-toggle" onclick="toggleCase('sr')">Read case study <span class="cs-arrow">↓</span></button>
+        </div>
+        <div class="project-figma-panel">
+          <div class="figma-tabs">
+            <button class="figma-tab active" onclick="switchTab(this,'sr','lofi')">Mobile Design</button>
+            <button class="figma-tab" onclick="switchTab(this,'sr','hifi')">Website Design</button>
+          </div>
+          <div class="figma-embed-wrap">
+            <div class="figma-pane active" id="sr-lofi">
+              <iframe src="https://embed.figma.com/design/JK1dXCaxqiAorFOaO6VcoE/Project-1-School-Route-app?node-id=47-59&embed-host=share&fit_page=true" allowfullscreen></iframe>
+            </div>
+            <div class="figma-pane" id="sr-hifi">
+              <iframe src="https://embed.figma.com/design/JK1dXCaxqiAorFOaO6VcoE/Project-1-School-Route-app?node-id=119-2011&embed-host=share&fit_page=true" allowfullscreen></iframe>
+            </div>
+            <div class="figma-blocked-notice">If blocked, <a href="https://www.figma.com/design/JK1dXCaxqiAorFOaO6VcoE/Project-1-School-Route-app" target="_blank">open in Figma ↗</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-drawer" id="cs-sr">
+        <div class="cs-inner">
+          <div class="cs-section">
+            <h4>Overview</h4>
+            <p>SchoolRoute is a mobile application designed to solve a real problem faced by thousands of families every day: managing school transport. Parents struggle to track whether their child's bus is on time, communicate with other parents about carpooling, and get notified when something changes. Students have no centralised place to find their route, check stops, or coordinate shared rides.</p>
+          </div>
+          <div class="cs-section">
+            <h4>The Problem</h4>
+            <p>School transport coordination is fragmented. Parents rely on a combination of text messages, school newsletters, WhatsApp groups, and paper timetables — none of which are connected. This creates three core pain points: no live tracking, no carpool discovery, and scattered communication across inconsistent channels.</p>
+          </div>
+          <div class="cs-section">
+            <h4>Key Design Decisions</h4>
+            <div class="cs-decisions">
+              <div class="cs-decision">
+                <div class="cs-d-title">Dark theme</div>
+                <div class="cs-d-body">Chosen to create contrast, reduce eye strain, and communicate a technical/real-time feel appropriate for a transport app.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Colour-coded cards</div>
+                <div class="cs-d-body">Each quick-access card uses a different tinted background so users can scan by colour without reading labels.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Role-based onboarding</div>
+                <div class="cs-d-body">Role selection at onboarding ensures parents and students see relevant content without any settings configuration.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Familiar transit patterns</div>
+                <div class="cs-d-body">The live route tracker uses a dot-and-line pattern inspired by real transit apps, making the concept immediately recognisable.</div>
+              </div>
+            </div>
+          </div>
+          <div class="cs-section">
+            <h4>Outcomes</h4>
+            <div class="cs-outcomes">
+              <div class="cs-outcome"><span class="cs-num">15</span><span class="cs-label">hi-fi screens</span></div>
+              <div class="cs-outcome"><span class="cs-num">5</span><span class="cs-label">design stages</span></div>
+              <div class="cs-outcome"><span class="cs-num">6</span><span class="cs-label">task scenarios</span></div>
+              <div class="cs-outcome"><span class="cs-num">2</span><span class="cs-label">user roles</span></div>
+            </div>
+          </div>
+          <div class="cs-section">
+            <h4>What I Learned</h4>
+            <p>Design consistency is harder than it looks — maintaining the same spacing, border radius, font weight, and colour usage across 15 screens requires constant cross-referencing. I also learned that UX and UI are inseparable: the best-looking screen fails if users can't navigate to it or understand what it does.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pocket -->
+    <div class="project-card" id="card-pk">
+      <div class="project-card-top">
+        <div class="project-info">
+          <span class="project-tag tag-pocket">Personal Finance · Jan–Feb 2026</span>
+          <h3 class="project-title">Pocket</h3>
+          <p class="project-desc">A budgeting app that adapts to how users earn — salary, allowance, freelance, or pension — via an income-mode selector at onboarding. Chart-first dashboard, two-tap expense entry, and a savings runway calculator for fixed-income users.</p>
+          <div class="project-meta">
+            <span class="meta-chip">iOS + Responsive Web</span>
+            <span class="meta-chip">16 hi-fi screens</span>
+            <span class="meta-chip">WCAG-informed sizing</span>
+            <span class="meta-chip">Shared budget mode</span>
+          </div>
+          <button class="project-link cs-toggle" onclick="toggleCase('pk')">Read case study <span class="cs-arrow">↓</span></button>
+        </div>
+        <div class="project-figma-panel">
+          <div class="figma-tabs">
+            <button class="figma-tab active" onclick="switchTab(this,'pk','lofi')">Mobile Design</button>
+            <button class="figma-tab" onclick="switchTab(this,'pk','hifi')">Website Design</button>
+          </div>
+          <div class="figma-embed-wrap">
+            <div class="figma-pane active" id="pk-lofi">
+              <iframe src="https://embed.figma.com/design/JTCcR8l4k6BcEU3Ns2q5tr/Project-2-Pocket-app?node-id=2-4&embed-host=share&fit_page=true" allowfullscreen></iframe>
+            </div>
+            <div class="figma-pane" id="pk-hifi">
+              <iframe src="https://embed.figma.com/design/JTCcR8l4k6BcEU3Ns2q5tr/Project-2-Pocket-app?node-id=2-7&embed-host=share&fit_page=true" allowfullscreen></iframe>
+            </div>
+            <div class="figma-blocked-notice">If blocked, <a href="https://www.figma.com/design/JTCcR8l4k6BcEU3Ns2q5tr/Project-2-Pocket-app" target="_blank">open in Figma ↗</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-drawer" id="cs-pk">
+        <div class="cs-inner">
+          <div class="cs-section">
+            <h4>Overview</h4>
+            <p>Pocket is a mobile app and responsive website designed to solve the problem that existing finance apps are built for one type of user — a salaried adult with a stable monthly income. It serves students, freelancers, couples, and retirees with an experience that adapts from the moment of setup through an income-mode selector.</p>
+          </div>
+          <div class="cs-section">
+            <h4>The Problem</h4>
+            <p>Students and irregular earners, couples managing shared households, and older users on fixed incomes are completely underserved by existing budgeting apps. The result: most people either abandon these apps within a few weeks or fall back on spreadsheets that require too much manual effort to maintain.</p>
+          </div>
+          <div class="cs-section">
+            <h4>Key Design Decisions</h4>
+            <div class="cs-decisions">
+              <div class="cs-decision">
+                <div class="cs-d-title">Income mode selector</div>
+                <div class="cs-d-body">At onboarding, users select how they receive money: Salary, Allowance, Freelance, or Pension. This sets the entire budgeting model downstream.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Chart-first dashboard</div>
+                <div class="cs-d-body">A donut chart leads the dashboard rather than a transaction list — reducing cognitive load for quick daily check-ins.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Two-tap expense entry</div>
+                <div class="cs-d-body">Manual expense logging was designed to take exactly two taps: amount and category — dramatically reducing abandonment.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Savings runway</div>
+                <div class="cs-d-body">For pension-mode users, a projection shows "at your current spending rate, your savings will last X months" — reframing savings for finite incomes.</div>
+              </div>
+            </div>
+          </div>
+          <div class="cs-section">
+            <h4>Outcomes</h4>
+            <div class="cs-outcomes">
+              <div class="cs-outcome"><span class="cs-num">16</span><span class="cs-label">hi-fi screens</span></div>
+              <div class="cs-outcome"><span class="cs-num">5</span><span class="cs-label">user types served</span></div>
+              <div class="cs-outcome"><span class="cs-num">20+</span><span class="cs-label">prototype paths</span></div>
+              <div class="cs-outcome"><span class="cs-num">44px</span><span class="cs-label">min tap targets</span></div>
+            </div>
+          </div>
+          <div class="cs-section">
+            <h4>What I Learned</h4>
+            <p>The income mode selector is a single UI choice, but it restructures the entire app architecture downstream. This taught me to think about design decisions not as isolated screens but as systems — and deepened my data visualisation design skills significantly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MindBridge -->
+    <div class="project-card" id="card-mb">
+      <div class="project-card-top">
+        <div class="project-info">
+          <span class="project-tag tag-mindbridge">Mental Health · Mar–Apr 2026</span>
+          <h3 class="project-title">MindBridge</h3>
+          <p class="project-desc">A mobile app and responsive website for stigma-free mental health peer support. Designed for people not yet ready for therapy — featuring anonymous identity, moderated peer circles, and a persistent crisis support pathway on every screen.</p>
+          <div class="project-meta">
+            <span class="meta-chip">iOS + Responsive Web</span>
+            <span class="meta-chip">5 personas</span>
+            <span class="meta-chip">Safety-first architecture</span>
+            <span class="meta-chip">Anonymous by default</span>
+          </div>
+          <button class="project-link cs-toggle" onclick="toggleCase('mb')">Read case study <span class="cs-arrow">↓</span></button>
+        </div>
+        <div class="project-figma-panel">
+          <div class="figma-tabs">
+            <button class="figma-tab active" onclick="switchTab(this,'mb','lofi')">Mobile Design</button>
+            <button class="figma-tab" onclick="switchTab(this,'mb','hifi')">Website Design</button>
+          </div>
+          <div class="figma-embed-wrap">
+            <div class="figma-pane active" id="mb-lofi">
+              <iframe src="https://embed.figma.com/design/nzJajrrVaRtZVJK6jWV1St/Project-3-Mind-Bridge?node-id=2-3&embed-host=share&fit_page=true" allowfullscreen></iframe>
+            </div>
+            <div class="figma-pane" id="mb-hifi">
+              <iframe src="https://embed.figma.com/design/nzJajrrVaRtZVJK6jWV1St/Project-3-Mind-Bridge?node-id=69-5497&embed-host=share&fit_page=true" allowfullscreen></iframe>
+            </div>
+            <div class="figma-blocked-notice">If blocked, <a href="https://www.figma.com/design/nzJajrrVaRtZVJK6jWV1St/Project-3-Mind-Bridge" target="_blank">open in Figma ↗</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-drawer" id="cs-mb">
+        <div class="cs-inner">
+          <div class="cs-section">
+            <h4>Overview</h4>
+            <p>MindBridge addresses a gap that affects millions of people globally: the absence of accessible, stigma-free mental health peer support for those not yet ready for professional therapy. The product sits between expensive clinical platforms and generic wellness apps that lack genuine human connection.</p>
+          </div>
+          <div class="cs-section">
+            <h4>The Problem</h4>
+            <p>Three major user groups are completely underserved: people in the pre-clinical range who are told "you don't need therapy" but have nowhere to turn; caregivers — one of the highest-burnout groups, nearly invisible in consumer mental health design; and people from cultures where stigma prevents formal help-seeking.</p>
+          </div>
+          <div class="cs-section">
+            <h4>Key Design Decisions</h4>
+            <div class="cs-decisions">
+              <div class="cs-decision">
+                <div class="cs-d-title">Safety-first navigation</div>
+                <div class="cs-d-body">Crisis support is a persistent element in the global nav bar — not in settings. A content category was displaced to make this possible.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Anonymous-first identity</div>
+                <div class="cs-d-body">Users choose a username and optional avatar before any account creation. Email is an optional recovery field only — never shown to others.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Designing for non-engagement</div>
+                <div class="cs-d-body">The mood tracker has no streak, no daily reminder by default, and no gamification — directly responding to research showing guilt-driven app abandonment.</div>
+              </div>
+              <div class="cs-decision">
+                <div class="cs-d-title">Peer supporter pathway</div>
+                <div class="cs-d-body">A structured, badged 3-level pathway for people in recovery to give back safely — without requiring clinical credentials.</div>
+              </div>
+            </div>
+          </div>
+          <div class="cs-section">
+            <h4>Outcomes</h4>
+            <div class="cs-outcomes">
+              <div class="cs-outcome"><span class="cs-num">5</span><span class="cs-label">personas</span></div>
+              <div class="cs-outcome"><span class="cs-num">5</span><span class="cs-label">competitors audited</span></div>
+              <div class="cs-outcome"><span class="cs-num">3</span><span class="cs-label">web breakpoints</span></div>
+              <div class="cs-outcome"><span class="cs-num">6</span><span class="cs-label">task scenarios</span></div>
+            </div>
+          </div>
+          <div class="cs-section">
+            <h4>What I Learned</h4>
+            <p>Safety design is not a feature — it is infrastructure. The decision to place crisis support in persistent navigation rather than a help menu required displacing another category, but this trade-off is non-negotiable for a mental health product. Ethical UX sometimes means constraining design freedom deliberately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function switchTab(btn, project, view) {
+  const card = btn.closest('.project-card');
+  card.querySelectorAll('.figma-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  card.querySelectorAll('.figma-pane').forEach(p => p.classList.remove('active'));
+  card.querySelector('#' + project + '-' + view).classList.add('active');
+}
+
+function toggleCase(id) {
+  const drawer = document.getElementById('cs-' + id);
+  const card = document.getElementById('card-' + id);
+  const btn = card.querySelector('.cs-toggle');
+  const arrow = btn.querySelector('.cs-arrow');
+  const isOpen = drawer.classList.contains('open');
+  drawer.classList.toggle('open');
+  arrow.textContent = isOpen ? '↓' : '↑';
+  btn.textContent = '';
+  btn.appendChild(document.createTextNode(isOpen ? 'Read case study ' : 'Close case study '));
+  const newArrow = document.createElement('span');
+  newArrow.className = 'cs-arrow';
+  newArrow.textContent = isOpen ? '↓' : '↑';
+  btn.appendChild(newArrow);
+  if (!isOpen) {
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+</script>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Background</p>
+  <h2 class="section-title">Engineer turned<br>experience designer</h2>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am a UX/UI designer based in <strong>Kaohsiung, Taiwan</strong>, with a background in engineering research and a Google UX Design Professional Certificate. I bring systems thinking to design problems — asking why a flow works before asking what it looks like.</p>
+      <p>My M.Sc. research at NKNU involved building a Genetic Algorithm framework that reduced operational time by 26.9% across simulated datasets — the same rigour I apply to design: define the problem, measure the outcome, iterate.</p>
+      <p>I have completed three end-to-end portfolio projects across mental health, personal finance, and transport — each covering the full design process: research, personas, competitive analysis, wireframes, hi-fi prototyping, and a structured usability research plan.</p>
+      <p>I am open to <strong>global opportunities</strong>, fluent in English, and actively seeking my first UX role.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Mar–Apr 2026</span>
+          <div class="timeline-content">
+            <div class="timeline-title">MindBridge — Mental Health Peer Support</div>
+            <div class="timeline-org">iOS App + Responsive Web · Figma</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Jan–Feb 2026</span>
+          <div class="timeline-content">
+            <div class="timeline-title">Pocket — Personal Finance App</div>
+            <div class="timeline-org">iOS App + Responsive Web · Figma</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Nov–Dec 2025</span>
+          <div class="timeline-content">
+            <div class="timeline-title">SchoolRoute — School Transport App</div>
+            <div class="timeline-org">iOS App · Figma</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2024–2025</span>
+          <div class="timeline-content">
+            <div class="timeline-title">Google UX Design Professional Certificate</div>
+            <div class="timeline-org">Coursera — All 8 courses completed</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2023–2025</span>
+          <div class="timeline-content">
+            <div class="timeline-title">M.Sc. Engineering — NKNU</div>
+            <div class="timeline-org">Kaohsiung, Taiwan · MOE Scholarship</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Design</div>
+          <ul class="skill-list">
+            <li>Figma</li>
+            <li>Adobe XD</li>
+            <li>Wireframing</li>
+            <li>Prototyping</li>
+            <li>Design Systems</li>
+            <li>Visual Design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Research</div>
+          <ul class="skill-list">
+            <li>User Personas</li>
+            <li>Journey Mapping</li>
+            <li>Competitive Audit</li>
+            <li>Usability Testing</li>
+            <li>HMW Framing</li>
+            <li>Information Architecture</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Accessibility</div>
+          <ul class="skill-list">
+            <li>WCAG Guidelines</li>
+            <li>44px tap targets</li>
+            <li>Colour contrast</li>
+            <li>Screen readers</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Technical</div>
+          <ul class="skill-list">
+            <li>HTML/CSS</li>
+            <li>GitHub</li>
+            <li>Canva</li>
+            <li>Systems Thinking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Let's work together</p>
+  <h2 class="section-title">Open to UX roles<br>worldwide</h2>
+  <p class="section-sub">Based in Kaohsiung, Taiwan — available for remote work globally or relocation. Let's talk.</p>
+  <div class="contact-links">
+    <a href="mailto:yasirafaque25@gmail.com" class="contact-link">
+      <span class="contact-icon">✉</span>
+      yasirafaque25@gmail.com
+    </a>
+    <a href="tel:+886978883774" class="contact-link">
+      <span class="contact-icon">☏</span>
+      +886 0978 883 774
+    </a>
+    <a href="https://www.linkedin.com/in/yasir-afaque" target="_blank" class="contact-link">
+      <span class="contact-icon">in</span>
+      LinkedIn
+    </a>
+    <a href="https://yasir164.github.io/ux-portfolio" target="_blank" class="contact-link">
+      <span class="contact-icon">◈</span>
+      Portfolio
+    </a>
+    <a href="https://github.com/Yasir164" target="_blank" class="contact-link">
+      <span class="contact-icon">⌥</span>
+      GitHub
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Yasir Afaque. All rights reserved.</p>
+  <p>Kaohsiung, Taiwan · Open to global opportunities</p>
+</footer>
+
+</body>
+</html>
